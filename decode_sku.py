@@ -31,6 +31,7 @@ def decode_sku(sku: str) -> dict:
             decoded["uso"] = usage_map[part]
         elif part in religious_map:
             decoded["motivo_religioso"] = religious_map[part]
+        """"
         elif re.fullmatch(r"\d{2}", part):  # ring size
             decoded["talla_anillo"] = part
         elif re.fullmatch(r"L\d{2}", part):  # length
@@ -43,11 +44,11 @@ def decode_sku(sku: str) -> dict:
             decoded["modelo"] = part
         else:
             decoded.setdefault("otros", []).append(part)
-
+        """
     return decoded
 
 def main():
-    sku = "AG-IT-925-RH-AR-M-E-GX-ITP-005-01"
+    sku = "CH-18K-AR-M-D-AR-010-01"
     result = decode_sku(sku)
     print("Resultado del SKU:")
     for k, v in result.items():
